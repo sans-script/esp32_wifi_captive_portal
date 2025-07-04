@@ -2,12 +2,13 @@
 #define CONFIG_H
 
 // Configurações de hardware
-#define LED_PIN 13
+#define LED_PIN 4       // LED azul (indicador de atividade na página)
+#define GREEN_LED_PIN 2 // LED verde (sistema ligado)
 #define BUZZER_PIN 12
 
 // Configurações de rede
 const int DNS_PORT = 53;
-const char *ssid = "FUMA";
+char ssid[33] = "FUMA"; // SSID modificável (máximo 32 caracteres + terminador)
 const char *password = "";
 
 #endif
