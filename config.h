@@ -8,7 +8,7 @@
 
 // Configurações de rede
 const int DNS_PORT = 53;
-char ssid[33] = "FUMA"; // SSID modificável (máximo 32 caracteres + terminador)
+char ssid[33] = "UFMA Discentes"; // SSID modificável (máximo 32 caracteres + terminador)
 const char *password = "";
 
 #endif
